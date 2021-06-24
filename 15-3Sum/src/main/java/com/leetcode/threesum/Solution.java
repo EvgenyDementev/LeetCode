@@ -9,7 +9,7 @@ import java.util.Map;
 public class Solution {
 
   public List<List<Integer>> threeSum(int[] nums) {
-    long start = System.nanoTime();
+//    long start = System.nanoTime();
     List<List<Integer>> result = new ArrayList<>(nums.length);
 
     // Prepare
@@ -63,8 +63,8 @@ public class Solution {
       }
     }
 
-    System.out.println("Finish time = " + (System.nanoTime() - start) / 1_000_000);
-    System.out.println("result size = " + result.size());
+//    System.out.println("Finish time = " + (System.nanoTime() - start) / 1_000_000);
+//    System.out.println("result size = " + result.size());
 
     return result;
   }
