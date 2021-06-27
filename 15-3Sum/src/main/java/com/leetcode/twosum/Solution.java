@@ -3,7 +3,6 @@ package com.leetcode.twosum;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 class Solution {
   public int[] twoSum(int[] nums, int target) {

@@ -5,17 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class Utils {
-
-  private Utils () {}
-
-  public static List<Integer> toList(int[] array) {
-    ArrayList<Integer> list = new ArrayList<>();
-    for (int i : array) {
-      list.add(i);
-    }
-    return list;
-  }
+public final class TestUtils {
 
   public static void checklistEntry(List<Integer> list, int x, int  y, int z) {
 

@@ -2,6 +2,7 @@ package com.leetcode.twosum;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.leetcode.TestUtils;
 import com.leetcode.Utils;
 import java.util.Arrays;
 import org.junit.jupiter.api.DisplayName;
@@ -21,7 +22,7 @@ class SolutionTest {
   void zeros() {
     int[] array = new Solution().twoSum(new int[]{0,0}, 0);
     assertEquals(2, array.length);
-    Utils.checklistEntry(Utils.toList(array), Arrays.asList(0, 1));
+    TestUtils.checklistEntry(Utils.toList(array), Arrays.asList(0, 1));
   }
 
   @Test
@@ -29,7 +30,7 @@ class SolutionTest {
   void minusEight() {
     int[] array = new Solution().twoSum(new int[]{-1,-2,-3,-4,-5}, -8);
     assertEquals(2, array.length);
-    Utils.checklistEntry(Utils.toList(array), Arrays.asList(2, 4));
+    TestUtils.checklistEntry(Utils.toList(array), Arrays.asList(2, 4));
   }
 
 }
