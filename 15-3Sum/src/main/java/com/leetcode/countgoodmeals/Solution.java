@@ -22,11 +22,11 @@ public class Solution {
     int delicious;
     for(int i = 0; i < deliciousness.length; i++) {
       delicious = deliciousness[i];
-      Integer count = duplicates.get(delicious);
-      Integer pairsCount = singleNumberPairs.get(delicious);
+      Integer count = duplicates.getOrDefault(delicious, 0);
+      Integer pairsCount = singleNumberPairs.getOrDefault(delicious, 0);
 
-      int newCount = (count != null ? count + 1 : 1);
-      int newPairCount = (pairsCount != null ? pairsCount : 0);
+      int newCount = count + 1;
+      int newPairCount = pairsCount;
 
       if (newCount > 1 && powersOfTwo.contains(delicious+delicious)) {
         newPairCount += newCount - 1;
