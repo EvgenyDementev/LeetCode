@@ -1,22 +1,22 @@
 package com.leetcode.maxnumberofksumpairs;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Solution {
 
   public int maxOperations(int[] nums, int k) {
 
-    int max = 0;
-    for (int num : nums) {
-      max = Math.max(max, num);
-    }
-    int[] map = new int[max + 1];
+    Map<Integer, Integer> map = new HashMap<>(nums.length);
 
     int res = 0;
     for (int num : nums) {
-      if (k - num >= 0 && k - num <= max && map[k - num] > 0) {
+      Integer count = map.getOrDefault(k - num, 0);
+      if (count > 0) {
         res += 1;
-        map[k - num]--;
+        map.put(k - num, count-1);
       } else {
-        map[num]++;
+        map.put(num, map.getOrDefault(num, 0) + 1);
       }
     }
 
