@@ -14,27 +14,25 @@ public class Solution {
 
     // Prepare
     Arrays.sort(nums);
-    int firstPositiveIndex = 0;
-    int negativeLength = 0;
-    List<Integer> numsFiltered = new ArrayList<>();
-    for (int i = 0; i < nums.length; i++) {
-      if (i == 0 || i == 1 || nums[i] == 0 || (nums[i] != nums[i-2])) {
-        numsFiltered.add(nums[i]);
-        if ((nums[i] >= 0) && (firstPositiveIndex == 0)) {
-          firstPositiveIndex = numsFiltered.size() - 1;
-        }
-        if ((nums[i] <= 0)) {
-          negativeLength = numsFiltered.size();
-        }
-      }
-    }
-    nums = numsFiltered.stream().mapToInt(i->i).toArray();
+//    int firstPositiveIndex = 0;
+//    int negativeLength = 0;
+//    List<Integer> numsFiltered = new ArrayList<>();
+//    for (int i = 0; i < nums.length; i++) {
+//      if (i == 0 || i == 1 || nums[i] == 0 || (nums[i] != nums[i-2])) {
+//        numsFiltered.add(nums[i]);
+//        if ((nums[i] >= 0) && (firstPositiveIndex == 0)) {
+//          firstPositiveIndex = numsFiltered.size() - 1;
+//        }
+//        if ((nums[i] <= 0)) {
+//          negativeLength = numsFiltered.size();
+//        }
+//      }
+//    }
+//    nums = numsFiltered.stream().mapToInt(i->i).toArray();
 
     // Func
 
-    Map<Integer, List<List<Integer>>> mult = new HashMap<>();
-
-    for(int i=0; i<Math.min(negativeLength, nums.length - 2); i++) {
+    for(int i=0; (i < nums.length) && (nums[i] <= 0); i++) {
       if (i != 0 && nums[i] == nums[i-1]) {
         continue;
       }
@@ -42,7 +40,10 @@ public class Solution {
         if (j != i+1 && nums[j] == nums[j-1]) {
           continue;
         }
-        for(int k=(Math.max(firstPositiveIndex, j+1)); k<nums.length; k++) {
+        for(int k=j+1; (k<nums.length); k++) {
+          if (nums[k] < 0) {
+            continue;
+          }
           if (k != j+1 && nums[k] == nums[k-1]) {
             continue;
           }
