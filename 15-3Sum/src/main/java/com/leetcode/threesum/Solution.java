@@ -40,18 +40,15 @@ public class Solution {
         if (j != i+1 && nums[j] == nums[j-1]) {
           continue;
         }
-        for(int k=j+1; (k<nums.length); k++) {
-          if (nums[k] < 0) {
-            continue;
-          }
-          if (k != j+1 && nums[k] == nums[k-1]) {
+        for(int k=nums.length-1; (k>j) && nums[k] >= 0; k--) {
+          if (k != nums.length-1 && nums[k] == nums[k+1]) {
             continue;
           }
           int sum = nums[i]+nums[j]+nums[k];
           if (sum > 0) {
-            break;
-          } else if (sum < 0) {
             continue;
+          } else if (sum < 0) {
+            break;
           }
 
           List<Integer> ok = new ArrayList<>();
